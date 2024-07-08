@@ -1,0 +1,27 @@
+
+    .table {
+        border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+        width: 10%; /* Đặt chiều rộng bảng là 50% */
+    }
+
+    .table td {
+        border: 10px solid #000; /* Tạo khung cho mỗi ô */
+        padding: 80px; /* Tạo khoảng cách giữa nội dung và khung */
+        font-size: 100px; /* Đặt cỡ chữ là 20px */
+    }
+
+    .YELLOW {
+        background-color: #ffffcc; /* Màu nền màu vàng */
+        color: black; /* Màu chữ */
+    }
+
+    .RED {
+        background-color: #ffcccc; /* Màu nền đỏ */
+        color: red; /* Màu chữ */
+    }
+    .brain-position {
+        color:blue;
+    }
+    .container {
+        text-align: center; /* Căn giữa nội dung trong container */
+    }

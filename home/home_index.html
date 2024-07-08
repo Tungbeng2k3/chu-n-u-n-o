@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/home_style.css">
+    <title>Nhận biết vị trí u não</title>
+</head>
+<body>
+    <h1>Nhận biết vị trí u não</h1>
+    <p>Hãy chọn các triệu chứng bạn đang gặp phải:</p>
+    <form action="process.php" method="post">
+        <label for="dau_dau">Đau đầu:</label>
+        <input type="checkbox" id="dau_dau" name="dau_dau" value="1">
+        <br>
+        <label for="thay_doi_nhan_thuc">Thay đổi nhận thức:</label>
+        <input type="checkbox" id="thay_doi_nhan_thuc" name="thay_doi_nhan_thuc" value="1">
+        <br>
+        <label for="yeu_co_te_liet">Yếu cơ, tê liệt:</label>
+        <input type="checkbox" id="yeu_co_te_liet" name="yeu_co_te_liet" value="1">
+        <br>
+        <label for="roi_loan_thi_giac">Rối loạn thị giác:</label>
+        <input type="checkbox" id="roi_loan_thi_giac" name="roi_loan_thi_giac" value="1">
+        <br>
+        <label for="roi_loan_ngon_ngu">Rối loạn ngôn ngữ:</label>
+        <input type="checkbox" id="roi_loan_ngon_ngu" name="roi_loan_ngon_ngu" value="1">
+        <br>
+        <label for="roi_loan_can_bang">Rối loạn thăng bằng và phối hợp:</label>
+        <inputtype="checkbox" id="roi_loan_can_bang" name="roi_loan_can_bang" value="1">
+        <br>
+        <label for="thay_doi_chuc_nang">Thay đổi chức năng ruột và bàng quang:</label>
+        <input type="checkbox" id="thay_doi_chuc_nang" name="thay_doi_chuc_nang" value="1">
+        <br>
+        <br>
+        <input type="submit" value="Xác định">
+    </form>
+</body>
+</html>

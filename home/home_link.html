@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Khối U Não Tự Đánh Giá</title>
+</head>
+<body>
+    <h1>Khối U Não Tự Đánh Giá</h1>
+    <form method="post" action="">
+        <label><input type="checkbox" name="symptoms[]" value="Thay đổi tính cách"> Thay đổi tính cách</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Khó khăn lập kế hoạch"> Khó khăn lập kế hoạch</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Suy giảm khả năng vận động"> Suy giảm khả năng vận động</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Mất cảm giác"> Mất cảm giác</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Khó xác định vị trí của các chi"> Khó xác định vị trí của các chi</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Vấn đề ngôn ngữ"> Vấn đề ngôn ngữ</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Vấn đề thính giác"> Vấn đề thính giác</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Co giật"> Co giật</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Vấn đề trí nhớ"> Vấn đề trí nhớ</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Mất thị lực"> Mất thị lực</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Nhìn đôi"> Nhìn đôi</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Mất thăng bằng"> Mất thăng bằng</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Run rẩy khi di chuyển"> Run rẩy khi di chuyển</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Vấn đề chức năng tự động"> Vấn đề chức năng tự động</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Yếu hoặc liệt"> Yếu hoặc liệt</label><br>
+        <label><input type="checkbox" name="symptoms[]" value="Khó khăn nuốt và nói"> Khó khăn nuốt và nói</label><br>
+        <button type="submit" name="submit">Kiểm tra</button>
+    </form>
+    <div id="result">
+        <?php
+        if (isset($_POST['submit'])) {
+            $symptoms = isset($_POST['symptoms']) ? $_POST['symptoms'] : [];
+            $location = determineTumorLocation($symptoms);
+            echo 'Vị trí có thể của khối u: ' . $location;
+        }
+
+        function determineTumorLocation($symptoms) {
+            $locations = [];
+
+            if (in_array('Thay đổi tính cách', $symptoms) || in_array('Khó khăn lập kế hoạch', $symptoms) || in_array('Suy giảm khả năng vận động', $symptoms)) {
+                $locations[] = 'Thùy trán';
+            }
+
+            if (in_array('Mất cảm giác', $symptoms) || in_array('Khó xác định vị trí của các chi', $symptoms) || in_array('Vấn đề ngôn ngữ', $symptoms)) {
+                $locations[] = 'Thùy đỉnh';
+            }
+
+            if (in_array('Vấn đề thính giác', $symptoms) || in_array('Co giật', $symptoms) || in_array('Vấn đề trí nhớ', $symptoms)) {
+                $locations[] = 'Thùy thái dương';
+            }
+
+            if (in_array('Mất thị lực', $symptoms) || in_array('Nhìn đôi', $symptoms)) {
+                $locations[] = 'Thùy chẩm';
+            }
+
+            if (in_array('Mất thăng bằng', $symptoms) || in_array('Run rẩy khi di chuyển', $symptoms)) {
+                $locations[] = 'Tiểu não';
+            }
+
+            if (in_array('Vấn đề chức năng tự động', $symptoms) || in_array('Yếu hoặc liệt', $symptoms) || in_array('Khó khăn nuốt và nói', $symptoms)) {
+                $locations[] = 'Thân não';
+            }
+
+            if (empty($locations)) {
+                return 'Không xác định được. Vui lòng liên hệ bác sĩ để kiểm tra chi tiết.';
+            } else {
+                return implode(', ', $locations);
+            }
+        }
+        ?>
+    </div>
+</body>
+</html>
